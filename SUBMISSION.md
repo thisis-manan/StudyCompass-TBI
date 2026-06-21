@@ -11,11 +11,11 @@ npm run dev
 ```
 
 Open http://localhost:3000. Routes: `/`, `/dashboard`, `/about`, `/login`,
-`/showcase`. The dark/light toggle is the 🌙/☀️ button in the navbar.
+`/showcase`. The dark/light toggle is the moon/sun button in the navbar.
 
 ---
 
-## ✅ Done in code
+## Done in code
 
 ### Week 2 — Deliverable 1 (Frontend Skeleton)
 - Home page (`app/page.tsx`) uses **Navbar, Hero, Card (×6 in a grid), Footer**.
@@ -37,7 +37,7 @@ Open http://localhost:3000. Routes: `/`, `/dashboard`, `/about`, `/login`,
 
 ---
 
-## ✍️ Manual steps you still need to do
+## Manual steps you still need to do
 
 ### Week 2 — Deliverable 3: Screenshot Pack (PDF)
 1. `npm run dev`, open http://localhost:3000.

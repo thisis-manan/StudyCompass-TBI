@@ -1,4 +1,4 @@
-# StudyCompass 🧭
+# StudyCompass
 
 An AI-powered learning assistant. Upload your notes, textbooks, and PDFs, then
 ask questions in natural language — StudyCompass uses Retrieval-Augmented

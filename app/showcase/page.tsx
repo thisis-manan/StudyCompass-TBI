@@ -49,7 +49,7 @@ export default function ShowcasePage() {
               placeholder="Type something…"
             />
             {name && (
-              <p className="text-sm text-foreground/60">Hello, {name}! 👋</p>
+              <p className="text-sm text-foreground/60">Hello, {name}!</p>
             )}
           </section>
 
@@ -89,8 +89,8 @@ export default function ShowcasePage() {
         title="Example Modal"
       >
         <p>
-          This is a reusable modal component. Click the backdrop, the ✕, or press
-          Escape to close it.
+          This is a reusable modal component. Click the backdrop, the close
+          button, or press Escape to close it.
         </p>
         <div className="mt-4 flex justify-end">
           <Button onClick={() => setModalOpen(false)}>Got it</Button>

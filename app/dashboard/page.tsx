@@ -14,17 +14,14 @@ export default function DashboardPage() {
 
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <Card
-            icon="📄"
             title="My Materials"
             description="0 documents uploaded. Upload notes and PDFs to get started."
           />
           <Card
-            icon="💬"
             title="Recent Chats"
             description="No conversations yet. Ask your first question anytime."
           />
           <Card
-            icon="🧠"
             title="Saved Quizzes"
             description="Generated practice quizzes will be saved here for revision."
           />
