@@ -1,0 +1,575 @@
+{
+  "info": {
+    "name": "StudyCompass API — Week 4",
+    "_postman_id": "5d3b1f20-9c4e-4a2b-8f10-studycompass4",
+    "description": "REST API for StudyCompass study materials (notes, textbooks, PDFs, slides).\n\nSet the `baseUrl` collection variable to your running backend (default http://localhost:4000) and `materialId` to an existing material id.\n\nCovers full CRUD (list, get one, create, PUT, PATCH, delete) plus search and a health check. Each request has at least one saved example response.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "health"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "200 OK",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "health"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"status\": \"ok\",\n  \"service\": \"studycompass-backend\",\n  \"timestamp\": \"2026-06-29T04:54:56.419Z\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "List Materials",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/materials",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "materials"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "200 OK",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/materials",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "materials"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"count\": 2,\n  \"data\": [\n    {\n      \"id\": \"1a2b3c4d-0001-4a10-9c01-000000000001\",\n      \"title\": \"Calculus I — Limits & Derivatives\",\n      \"subject\": \"Mathematics\",\n      \"type\": \"note\",\n      \"description\": \"Handwritten notes covering limits, continuity, and the rules of differentiation.\",\n      \"tags\": [\n        \"calculus\",\n        \"derivatives\",\n        \"limits\"\n      ],\n      \"pages\": 24,\n      \"createdAt\": \"2026-06-01T09:00:00.000Z\",\n      \"updatedAt\": \"2026-06-01T09:00:00.000Z\"\n    },\n    {\n      \"id\": \"1a2b3c4d-0002-4a10-9c01-000000000002\",\n      \"title\": \"Introduction to Algorithms\",\n      \"subject\": \"Computer Science\",\n      \"type\": \"textbook\",\n      \"description\": \"CLRS textbook chapters on sorting, graphs, and dynamic programming.\",\n      \"tags\": [\n        \"algorithms\",\n        \"data-structures\",\n        \"clrs\"\n      ],\n      \"pages\": 1312,\n      \"createdAt\": \"2026-06-03T14:30:00.000Z\",\n      \"updatedAt\": \"2026-06-03T14:30:00.000Z\"\n    }\n  ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Search Materials",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/materials/search?q=algorithms",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "materials",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "algorithms"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "200 OK",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/materials/search?q=algorithms",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "materials",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "algorithms"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"query\": \"algorithms\",\n  \"count\": 1,\n  \"data\": [\n    {\n      \"id\": \"1a2b3c4d-0002-4a10-9c01-000000000002\",\n      \"title\": \"Introduction to Algorithms\",\n      \"subject\": \"Computer Science\",\n      \"type\": \"textbook\",\n      \"description\": \"CLRS textbook chapters on sorting, graphs, and dynamic programming.\",\n      \"tags\": [\n        \"algorithms\",\n        \"data-structures\",\n        \"clrs\"\n      ],\n      \"pages\": 1312,\n      \"createdAt\": \"2026-06-03T14:30:00.000Z\",\n      \"updatedAt\": \"2026-06-03T14:30:00.000Z\"\n    }\n  ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Material by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/materials/{{materialId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "materials",
+            "{{materialId}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "200 OK",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/materials/{{materialId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "materials",
+                "{{materialId}}"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"data\": {\n    \"id\": \"1a2b3c4d-0001-4a10-9c01-000000000001\",\n    \"title\": \"Calculus I — Limits & Derivatives\",\n    \"subject\": \"Mathematics\",\n    \"type\": \"note\",\n    \"description\": \"Handwritten notes covering limits, continuity, and the rules of differentiation.\",\n    \"tags\": [\n      \"calculus\",\n      \"derivatives\",\n      \"limits\"\n    ],\n    \"pages\": 24,\n    \"createdAt\": \"2026-06-01T09:00:00.000Z\",\n    \"updatedAt\": \"2026-06-01T09:00:00.000Z\"\n  }\n}"
+        },
+        {
+          "name": "404 Not Found",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/materials/does-not-exist",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "materials",
+                "does-not-exist"
+              ]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"error\": {\n    \"message\": \"No material found with id 'does-not-exist'\",\n    \"status\": 404\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Create Material",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Linear Algebra Cheat Sheet\",\n  \"subject\": \"Mathematics\",\n  \"type\": \"pdf\",\n  \"description\": \"One-page summary of matrices, eigenvalues, and vector spaces.\",\n  \"tags\": [\n    \"matrices\",\n    \"eigenvalues\"\n  ],\n  \"pages\": 1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/materials",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "materials"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "201 Created",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Linear Algebra Cheat Sheet\",\n  \"subject\": \"Mathematics\",\n  \"type\": \"pdf\",\n  \"description\": \"One-page summary of matrices, eigenvalues, and vector spaces.\",\n  \"tags\": [\n    \"matrices\",\n    \"eigenvalues\"\n  ],\n  \"pages\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/materials",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "materials"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"data\": {\n    \"id\": \"ada901e6-b414-4de7-b845-165fa651837e\",\n    \"title\": \"Linear Algebra Cheat Sheet\",\n    \"subject\": \"Mathematics\",\n    \"type\": \"pdf\",\n    \"description\": \"One-page summary of matrices, eigenvalues, and vector spaces.\",\n    \"tags\": [\n      \"matrices\",\n      \"eigenvalues\"\n    ],\n    \"pages\": 1,\n    \"createdAt\": \"2026-06-29T04:55:10.787Z\",\n    \"updatedAt\": \"2026-06-29T04:55:10.787Z\"\n  }\n}"
+        },
+        {
+          "name": "400 Bad Request (validation)",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"\",\n  \"type\": \"video\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/materials",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "materials"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"error\": {\n    \"message\": \"Validation failed\",\n    \"status\": 400,\n    \"details\": {\n      \"title\": \"title is required and must be a non-empty string\",\n      \"subject\": \"subject is required and must be a non-empty string\",\n      \"type\": \"type is required and must be one of: note, textbook, pdf, slide\"\n    }\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Replace Material (PUT)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Linear Algebra — Full Notes\",\n  \"subject\": \"Mathematics\",\n  \"type\": \"note\",\n  \"description\": \"Expanded notes.\",\n  \"tags\": [\n    \"matrices\"\n  ],\n  \"pages\": 40\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/materials/{{materialId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "materials",
+            "{{materialId}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "200 OK",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Linear Algebra — Full Notes\",\n  \"subject\": \"Mathematics\",\n  \"type\": \"note\",\n  \"description\": \"Expanded notes.\",\n  \"tags\": [\n    \"matrices\"\n  ],\n  \"pages\": 40\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/materials/{{materialId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "materials",
+                "{{materialId}}"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"data\": {\n    \"id\": \"1a2b3c4d-0001-4a10-9c01-000000000001\",\n    \"title\": \"Linear Algebra — Full Notes\",\n    \"subject\": \"Mathematics\",\n    \"type\": \"note\",\n    \"description\": \"Expanded notes.\",\n    \"tags\": [\n      \"matrices\"\n    ],\n    \"pages\": 40,\n    \"createdAt\": \"2026-06-01T09:00:00.000Z\",\n    \"updatedAt\": \"2026-06-29T04:55:10.813Z\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Update Material (PATCH)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"pages\": 45\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/materials/{{materialId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "materials",
+            "{{materialId}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "200 OK",
+          "originalRequest": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pages\": 45\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/materials/{{materialId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "materials",
+                "{{materialId}}"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"data\": {\n    \"id\": \"1a2b3c4d-0001-4a10-9c01-000000000001\",\n    \"title\": \"Linear Algebra — Full Notes\",\n    \"subject\": \"Mathematics\",\n    \"type\": \"note\",\n    \"description\": \"Expanded notes.\",\n    \"tags\": [\n      \"matrices\"\n    ],\n    \"pages\": 45,\n    \"createdAt\": \"2026-06-01T09:00:00.000Z\",\n    \"updatedAt\": \"2026-06-29T04:55:10.822Z\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete Material",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/materials/{{materialId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "materials",
+            "{{materialId}}"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "200 OK",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/materials/{{materialId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "materials",
+                "{{materialId}}"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"message\": \"Material deleted\",\n  \"id\": \"1a2b3c4d-0001-4a10-9c01-000000000001\"\n}"
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:4000",
+      "type": "string"
+    },
+    {
+      "key": "materialId",
+      "value": "1a2b3c4d-0001-4a10-9c01-000000000001",
+      "type": "string"
+    }
+  ]
+}

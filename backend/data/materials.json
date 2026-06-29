@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1a2b3c4d-0001-4a10-9c01-000000000001",
+    "title": "Calculus I — Limits & Derivatives",
+    "subject": "Mathematics",
+    "type": "note",
+    "description": "Handwritten notes covering limits, continuity, and the rules of differentiation.",
+    "tags": [
+      "calculus",
+      "derivatives",
+      "limits"
+    ],
+    "pages": 24,
+    "createdAt": "2026-06-01T09:00:00.000Z",
+    "updatedAt": "2026-06-01T09:00:00.000Z"
+  },
+  {
+    "id": "1a2b3c4d-0002-4a10-9c01-000000000002",
+    "title": "Introduction to Algorithms",
+    "subject": "Computer Science",
+    "type": "textbook",
+    "description": "CLRS textbook chapters on sorting, graphs, and dynamic programming.",
+    "tags": [
+      "algorithms",
+      "data-structures",
+      "clrs"
+    ],
+    "pages": 1312,
+    "createdAt": "2026-06-03T14:30:00.000Z",
+    "updatedAt": "2026-06-03T14:30:00.000Z"
+  },
+  {
+    "id": "1a2b3c4d-0003-4a10-9c01-000000000003",
+    "title": "Organic Chemistry Reaction Mechanisms",
+    "subject": "Chemistry",
+    "type": "pdf",
+    "description": "Slides summarising common organic reaction mechanisms with examples.",
+    "tags": [
+      "organic",
+      "reactions",
+      "mechanisms"
+    ],
+    "pages": 58,
+    "createdAt": "2026-06-05T11:15:00.000Z",
+    "updatedAt": "2026-06-05T11:15:00.000Z"
+  },
+  {
+    "id": "1a2b3c4d-0004-4a10-9c01-000000000004",
+    "title": "World History — The Cold War",
+    "subject": "History",
+    "type": "slide",
+    "description": "Lecture slides on the causes, key events, and aftermath of the Cold War.",
+    "tags": [
+      "cold-war",
+      "20th-century",
+      "geopolitics"
+    ],
+    "pages": 42,
+    "createdAt": "2026-06-08T16:45:00.000Z",
+    "updatedAt": "2026-06-08T16:45:00.000Z"
+  }
+]
